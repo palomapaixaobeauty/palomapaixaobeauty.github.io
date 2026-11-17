@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paloma Paixão · Studio de Beleza</title>
+<meta name="description" content="Paloma Paixão Studio de Beleza — Nail Design, Manicure & Pedicure, Brows, Lash Design e Massoterapia em Tucano-BA. Agende pelo WhatsApp.">
+<meta name="theme-color" content="#674E38">
+<meta property="og:title" content="Paloma Paixão · Studio de Beleza">
+<meta property="og:description" content="O toque de cuidado que você merece. Agende pelo WhatsApp.">
+<meta property="og:image" content="img/paloma.jpg">
+<link rel="icon" href="img/monograma-marrom.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --creme:#F4F1E2;
+    --areia:#D3D0BF;
+    --oliva:#7D6D53;
+    --marrom:#674E38;
+    --cafe:#1F1A14;
+    --branco:#FBFAF3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Jost',system-ui,sans-serif;
+    font-weight:400;
+    color:var(--cafe);
+    background:var(--creme);
+    min-height:100vh;
+    position:relative;
+    overflow-x:hidden;
+  }
+  /* padrão de monogramas ao fundo */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background-image:url("img/monograma-marrom.png");
+    background-size:46px auto;
+    background-repeat:space;
+    background-position:center;
+    opacity:.03;
+    pointer-events:none;
+    z-index:0;
+  }
+  .page{
+    position:relative;z-index:1;
+    max-width:480px;margin:0 auto;
+    padding-bottom:40px;
+  }
+
+  /* ---------- topo ---------- */
+  .hero{
+    position:relative;
+    background:var(--marrom);
+    border-radius:0 0 34px 34px;
+    padding:38px 28px 34px;
+    text-align:center;
+    overflow:hidden;
+    color:var(--creme);
+  }
+  .hero::after{ /* monograma grande decorativo */
+    content:"";
+    position:absolute;
+    right:-46px;top:-30px;
+    width:230px;height:310px;
+    background:url("img/monograma-creme.png") no-repeat center/contain;
+    opacity:.08;
+    pointer-events:none;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    left:-60px;bottom:-90px;
+    width:200px;height:270px;
+    background:url("img/monograma-creme.png") no-repeat center/contain;
+    opacity:.05;
+    transform:rotate(180deg);
+    pointer-events:none;
+  }
+  .foto-wrap{
+    position:relative;
+    width:150px;height:150px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    padding:5px;
+    border:1px solid rgba(244,241,226,.55);
+  }
+  .foto{
+    width:100%;height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    object-position:50% 22%;
+    display:block;
+    background:var(--oliva);
+  }
+  .brilho{
+    position:absolute;
+    top:4px;right:10px;
+    width:22px;height:22px;
+    color:var(--creme);
+  }
+  .logo-nome{
+    width:min(78%,300px);
+    height:auto;
+    display:block;
+    margin:0 auto;
+  }
+  .tagline{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.22rem;
+    letter-spacing:.01em;
+    margin-top:16px;
+    color:var(--creme);
+    opacity:.92;
+  }
+  .local{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:12px;
+    font-size:.72rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--areia);
+  }
+  .local svg{width:13px;height:13px}
+
+  /* ---------- conteúdo ---------- */
+  .conteudo{padding:28px 22px 0}
+
+  .btn-principal{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    width:100%;
+    padding:19px 20px;
+    border-radius:18px;
+    background:var(--cafe);
+    color:var(--creme);
+    text-decoration:none;
+    font-weight:500;
+    font-size:1rem;
+    letter-spacing:.04em;
+    box-shadow:0 10px 26px -12px rgba(31,26,20,.55);
+    transition:transform .2s ease, box-shadow .2s ease;
+    position:relative;overflow:hidden;
+  }
+  .btn-principal svg{width:22px;height:22px;flex-shrink:0}
+  .btn-principal::after{
+    content:"";position:absolute;top:0;left:-120%;
+    width:60%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(244,241,226,.14),transparent);
+    animation:reflexo 4.5s ease-in-out infinite 1.2s;
+  }
+  @keyframes reflexo{0%{left:-120%}35%,100%{left:140%}}
+  .btn-principal:active{transform:scale(.98)}
+  .sub-principal{
+    text-align:center;
+    font-size:.78rem;
+    color:var(--oliva);
+    margin-top:9px;
+    letter-spacing:.02em;
+  }
+
+  .titulo-secao{
+    display:flex;align-items:center;gap:14px;
+    margin:34px 0 16px;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.45rem;
+    font-weight:500;
+    color:var(--marrom);
+  }
+  .titulo-secao::before,.titulo-secao::after{
+    content:"";flex:1;height:1px;background:var(--areia);
+  }
+
+  /* serviços */
+  .servicos{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  .servico{
+    display:flex;flex-direction:column;justify-content:space-between;
+    min-height:104px;
+    padding:16px 16px 14px;
+    border-radius:18px;
+    background:var(--branco);
+    border:1px solid var(--areia);
+    text-decoration:none;
+    color:var(--cafe);
+    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .servico:hover{border-color:var(--oliva)}
+  .servico:active{transform:scale(.97)}
+  .servico .ic{
+    width:34px;height:34px;border-radius:50%;
+    display:grid;place-items:center;
+    background:var(--creme);
+    color:var(--marrom);
+  }
+  .servico .ic svg{width:18px;height:18px}
+  .servico strong{
+    display:block;
+    font-weight:500;
+    font-size:.98rem;
+    line-height:1.2;
+    margin-top:12px;
+  }
+  .servico span{
+    font-size:.7rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--oliva);
+    margin-top:4px;
+    display:block;
+  }
+  .servico.largo{
+    grid-column:1 / -1;
+    flex-direction:row;align-items:center;gap:14px;
+    min-height:auto;
+    background:var(--oliva);
+    border-color:var(--oliva);
+    color:var(--creme);
+  }
+  .servico.largo .ic{background:rgba(244,241,226,.16);color:var(--creme)}
+  .servico.largo strong{margin-top:0}
+  .servico.largo span{color:var(--areia)}
+  .servico.largo .seta{margin-left:auto;width:18px;height:18px;opacity:.8}
+
+  /* links */
+  .links{display:flex;flex-direction:column;gap:10px}
+  .link{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 16px;
+    border-radius:18px;
+    background:var(--branco);
+    border:1px solid var(--areia);
+    text-decoration:none;
+    color:var(--cafe);
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .link:hover{border-color:var(--oliva)}
+  .link:active{transform:scale(.98)}
+  .link .ic{
+    width:42px;height:42px;border-radius:14px;
+    display:grid;place-items:center;flex-shrink:0;
+    background:var(--marrom);color:var(--creme);
+  }
+  .link .ic svg{width:20px;height:20px}
+  .link .txt strong{display:block;font-weight:500;font-size:.98rem}
+  .link .txt small{display:block;font-size:.8rem;color:var(--oliva);margin-top:1px}
+  .link .seta{margin-left:auto;width:18px;height:18px;color:var(--oliva)}
+
+
+  /* horários */
+  .horarios{
+    background:var(--branco);
+    border:1px solid var(--areia);
+    border-radius:20px;
+    padding:18px 20px;
+  }
+  .status{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+    padding:6px 12px;border-radius:99px;
+    background:var(--creme);color:var(--oliva);
+    margin-bottom:12px;
+  }
+  .status i{width:7px;height:7px;border-radius:50%;background:var(--oliva);display:block}
+  .status.aberto{color:var(--marrom)}
+  .status.aberto i{background:#6F8A4E;box-shadow:0 0 0 0 rgba(111,138,78,.5);animation:pulso 2s infinite}
+  @keyframes pulso{70%{box-shadow:0 0 0 7px rgba(111,138,78,0)}100%{box-shadow:0 0 0 0 rgba(111,138,78,0)}}
+  .linha-h{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:9px 0;
+    border-top:1px dashed var(--areia);
+    font-size:.95rem;
+  }
+  .linha-h:first-of-type{border-top:0}
+  .linha-h span{color:var(--oliva)}
+  .linha-h strong{font-weight:500}
+  .linha-h.hoje span,.linha-h.hoje strong{color:var(--marrom);font-weight:600}
+  .endereco{
+    display:flex;gap:10px;align-items:flex-start;
+    margin-top:12px;padding-top:14px;
+    border-top:1px solid var(--areia);
+    font-size:.85rem;color:var(--oliva);line-height:1.45;
+    text-decoration:none;
+  }
+  .endereco svg{width:17px;height:17px;flex-shrink:0;margin-top:1px;color:var(--marrom)}
+  .endereco b{color:var(--cafe);font-weight:500}
+
+
+  .mapa{
+    position:relative;
+    margin-top:14px;
+    border-radius:16px;
+    overflow:hidden;
+    aspect-ratio:4/3;
+    background:var(--creme);
+    border:1px solid var(--areia);
+  }
+  .mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .mapa-legenda{
+    position:absolute;left:10px;bottom:10px;
+    background:rgba(31,26,20,.78);color:var(--creme);
+    font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+    padding:6px 10px;border-radius:99px;pointer-events:none;
+  }
+
+  /* frase / sobre */
+  .sobre{
+    margin-top:34px;
+    background:var(--cafe);
+    color:var(--creme);
+    border-radius:24px;
+    padding:30px 26px;
+    text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .sobre img{width:46px;height:auto;display:block;margin:0 auto 14px;opacity:.9}
+  .sobre p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.22rem;
+    line-height:1.45;
+    font-style:italic;
+  }
+  .sobre small{
+    display:block;margin-top:14px;
+    font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--areia);
+  }
+
+  footer{
+    text-align:center;
+    padding:30px 20px 0;
+    font-size:.74rem;
+    color:var(--oliva);
+    letter-spacing:.03em;
+  }
+  footer .marca{
+    display:block;
+    font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;
+    margin-bottom:6px;color:var(--marrom);
+  }
+  footer a{color:var(--oliva);text-decoration:none;border-bottom:1px solid var(--areia)}
+
+  /* entrada suave */
+  .anim{opacity:0;transform:translateY(14px);animation:sobe .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes sobe{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .anim{animation:none;opacity:1;transform:none}
+    .btn-principal::after{display:none}
+  }
+  @media (min-width:520px){
+    .page{padding-top:24px}
+    .hero{border-radius:34px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <div class="foto-wrap anim" style="animation-delay:.05s">
+      <img class="foto" src="img/paloma.jpg" alt="Paloma Paixão">
+      <svg class="brilho" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+    </div>
+    <h1 class="anim" style="animation-delay:.15s">
+      <img class="logo-nome" src="img/nome-creme.png" alt="Paloma Paixão — Studio de Beleza">
+    </h1>
+    <p class="tagline anim" style="animation-delay:.25s">O toque de cuidado que você merece.</p>
+    <div class="local anim" style="animation-delay:.32s">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+      Tucano · Bahia
+    </div>
+  </header>
+
+  <main class="conteudo">
+
+    <div class="anim" style="animation-delay:.4s">
+      <a class="btn-principal" href="https://wa.me/5575991972378?text=Ol%C3%A1%2C%20Paloma!%20Vim%20pela%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20%E2%9C%A8" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.4z"/></svg>
+        Agendar meu horário
+      </a>
+      <p class="sub-principal">Atendimento com hora marcada</p>
+    </div>
+
+    <h2 class="titulo-secao anim" style="animation-delay:.48s">Nossos serviços</h2>
+
+    <div class="servicos anim" style="animation-delay:.55s">
+      <a class="servico" data-servico="Nail Design" href="#" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21V9a4 4 0 0 1 8 0v12"/><path d="M8 13h8"/><path d="M10.5 6.5c.5-.6 1-.8 1.5-.8"/></svg></div>
+        <div><strong>Nail Design</strong><span>Unhas</span></div>
+      </a>
+      <a class="servico" data-servico="Manicure & Pedicure" href="#" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4H9z"/><path d="M8 7h8l1 3v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9z"/><path d="M7 13h10"/></svg></div>
+        <div><strong>Manicure &amp; Pedicure</strong><span>Mãos e pés</span></div>
+      </a>
+      <a class="servico" data-servico="Brows (Design de Sobrancelhas)" href="#" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 11c3-4 9-5 15-3 1 .3 2 .8 3 1.5"/><path d="M6 15.5c1.8-1.3 4-2 6-2s4.2.7 6 2"/><circle cx="12" cy="17" r="1.4"/></svg></div>
+        <div><strong>Brows</strong><span>Sobrancelhas</span></div>
+      </a>
+      <a class="servico" data-servico="Lash Design" href="#" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 12c2.5 3 5.5 4.5 9 4.5s6.5-1.5 9-4.5"/><path d="M6 14.5 4.5 17M9 16l-.8 2.7M12 16.5V19.3M15 16l.8 2.7M18 14.5l1.5 2.5"/></svg></div>
+        <div><strong>Lash Design</strong><span>Cílios</span></div>
+      </a>
+      <a class="servico largo" data-servico="Massoterapia" href="#" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-3.5 0-7-2.5-8-6 2.5-.5 5.5.5 8 3 2.5-2.5 5.5-3.5 8-3-1 3.5-4.5 6-8 6z"/><path d="M12 17c-1.8-2-2.5-4.5-2-8 1 .5 1.6 1.2 2 2 .4-.8 1-1.5 2-2 .5 3.5-.2 6-2 8z"/></svg></div>
+        <div><strong>Massoterapia</strong><span>Relaxamento e bem-estar</span></div>
+        <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+
+    <h2 class="titulo-secao anim" style="animation-delay:.6s">Horários</h2>
+
+    <div class="horarios anim" style="animation-delay:.64s">
+      <div class="status" id="status"><i></i><em style="font-style:normal">Horário de atendimento</em></div>
+      <div class="linha-h" data-dias="1,2,3,4,5"><span>Segunda a Sexta</span><strong>08h às 18h</strong></div>
+      <div class="linha-h" data-dias="6"><span>Sábado</span><strong>08h às 14h</strong></div>
+      <div class="linha-h" data-dias="0"><span>Domingo</span><strong>Fechado</strong></div>
+      <div class="mapa">
+        <iframe src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1794922876709!5m2!1spt-BR!2sbr!6m8!1m7!1sOi_-ZM7h53sNRqM1etFcvg!2m2!1d-10.96373077947386!2d-38.78462447118498!3f73.22376328483881!4f3.110031572019807!5f0.7820865974627469" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Fachada do Paloma Paixão Studio de Beleza"></iframe>
+        <span class="mapa-legenda">Nossa fachada</span>
+      </div>
+      <a class="endereco" href="https://maps.google.com/?cid=7342965173905362033" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        <div><b>R. Euvaldo Pereira Nunes – Centro</b><br>Tucano-BA · 48790-000</div>
+      </a>
+    </div>
+
+    <h2 class="titulo-secao anim" style="animation-delay:.62s">Acompanhe</h2>
+
+    <div class="links anim" style="animation-delay:.68s">
+      <a class="link" href="https://instagram.com/palomapaixaobeauty" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <div class="txt"><strong>Instagram</strong><small>@palomapaixaobeauty</small></div>
+        <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+      <a class="link" href="https://wa.me/5575991972378" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.2 8L3 21l1.1-4.6A9 9 0 1 1 21 12z"/></svg></div>
+        <div class="txt"><strong>WhatsApp</strong><small>(75) 9 9197-2378</small></div>
+        <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+      <a class="link" href="https://maps.google.com/?cid=7342965173905362033" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+        <div class="txt"><strong>Como chegar</strong><small>Centro, Tucano-BA · ver no mapa</small></div>
+        <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+
+    <section class="sobre anim" style="animation-delay:.76s">
+      <img src="img/monograma-creme.png" alt="">
+      <p>Cuidar de você vai além da estética — é um gesto de autoestima e confiança.</p>
+      <small>Técnica · Sofisticação · Acolhimento</small>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="marca">Paloma Paixão · Studio de Beleza</span>
+    Desenvolvido por <a href="https://wa.me/5575992799894" target="_blank" rel="noopener">Tallis do Carmo</a>
+  </footer>
+
+</div>
+
+<script>
+  // Monta o link do WhatsApp com o serviço escolhido
+  var fone = "5575991972378";
+  document.querySelectorAll("[data-servico]").forEach(function(el){
+    var msg = "Olá, Paloma! Vim pela sua página e gostaria de agendar: *" + el.dataset.servico + "* ✨";
+    el.href = "https://wa.me/" + fone + "?text=" + encodeURIComponent(msg);
+  });
+
+  // Status aberto/fechado (horário de Brasília)
+  (function(){
+    var agora = new Date(new Date().toLocaleString("en-US",{timeZone:"America/Sao_Paulo"}));
+    var dia = agora.getDay(), min = agora.getHours()*60 + agora.getMinutes();
+    var fecha = (dia>=1 && dia<=5) ? 18*60 : (dia===6 ? 14*60 : 0);
+    var aberto = fecha && min >= 8*60 && min < fecha;
+    var st = document.getElementById("status");
+    st.classList.toggle("aberto", !!aberto);
+    st.querySelector("em").textContent = aberto ? "Aberto agora" : "Fechado agora";
+    document.querySelectorAll(".linha-h").forEach(function(l){
+      if(l.dataset.dias.split(",").indexOf(String(dia))>-1) l.classList.add("hoje");
+    });
+  })();
+</script>
+</body>
+</html>
