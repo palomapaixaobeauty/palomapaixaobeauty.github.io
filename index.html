@@ -254,6 +254,91 @@
   .link .seta{margin-left:auto;width:18px;height:18px;color:var(--oliva)}
 
 
+
+  /* galeria */
+  .g-filtros{display:flex;gap:8px;margin-bottom:12px;overflow-x:auto;scrollbar-width:none}
+  .g-filtros::-webkit-scrollbar{display:none}
+  .g-filtro{
+    font:inherit;font-size:.8rem;letter-spacing:.06em;
+    padding:7px 16px;border-radius:99px;cursor:pointer;
+    border:1px solid var(--areia);background:transparent;color:var(--oliva);
+    white-space:nowrap;transition:all .2s ease;
+  }
+  .g-filtro.ativo{background:var(--marrom);border-color:var(--marrom);color:var(--creme)}
+  .galeria{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:6px;
+  }
+  .g-item{
+    position:relative;display:block;
+    aspect-ratio:1/1;
+    border:0;padding:0;margin:0;cursor:zoom-in;
+    border-radius:12px;overflow:hidden;
+    background:var(--areia);
+  }
+  .g-item:first-child{grid-column:span 2;grid-row:span 2}
+  .g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .g-item::after{
+    content:"";position:absolute;inset:0;
+    box-shadow:inset 0 0 0 1px rgba(31,26,20,.06);
+    border-radius:inherit;pointer-events:none;
+  }
+  .g-item:hover img{transform:scale(1.05)}
+  .g-item[hidden]{display:none}
+  @media (max-width:959px){
+    .g-item:nth-child(7):last-child{grid-column:span 3;aspect-ratio:2/1}
+    .g-item:nth-child(7):last-child img{object-position:50% 55%}
+  }
+  .g-dica{text-align:center;font-size:.76rem;color:var(--oliva);margin-top:10px}
+
+  /* lightbox */
+  .lb{
+    position:fixed;inset:0;z-index:50;
+    background:rgba(20,16,12,.94);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s;
+    padding:20px;
+  }
+  .lb.aberto{opacity:1;visibility:visible}
+  .lb-fig{margin:0;max-width:min(92vw,620px);width:100%;text-align:center;color:var(--creme)}
+  .lb-fig img{
+    width:100%;height:auto;max-height:68vh;object-fit:contain;
+    border-radius:16px;display:block;margin:0 auto;
+    touch-action:pan-y;
+  }
+  .lb-fig figcaption{margin-top:14px}
+  .lb-fig figcaption span{
+    display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;
+  }
+  .lb-fig figcaption small{display:block;font-size:.7rem;letter-spacing:.24em;color:var(--areia);margin-top:4px}
+  .lb-cta{
+    display:inline-flex;align-items:center;gap:10px;
+    margin-top:16px;padding:13px 22px;border-radius:99px;
+    background:var(--creme);color:var(--cafe);text-decoration:none;
+    font-weight:500;font-size:.92rem;letter-spacing:.03em;
+  }
+  .lb-cta svg{width:18px;height:18px}
+  .lb-fechar,.lb-nav{
+    position:absolute;border:0;cursor:pointer;
+    width:46px;height:46px;border-radius:50%;
+    display:grid;place-items:center;
+    background:rgba(244,241,226,.1);color:var(--creme);
+    transition:background .2s ease;
+  }
+  .lb-fechar:hover,.lb-nav:hover{background:rgba(244,241,226,.2)}
+  .lb-fechar svg,.lb-nav svg{width:22px;height:22px}
+  .lb-fechar{top:16px;right:16px}
+  .lb-nav{top:50%;transform:translateY(-50%)}
+  .lb-ant{left:16px}
+  .lb-prox{right:16px}
+  @media (max-width:640px){
+    .lb-nav{top:auto;bottom:22px;transform:none}
+    .lb-ant{left:calc(50% - 56px)}
+    .lb-prox{right:calc(50% - 56px)}
+    .lb-fig{margin-bottom:60px}
+  }
+
   /* horários */
   .horarios{
     background:var(--branco);
@@ -398,6 +483,10 @@
     .servico.largo{grid-column:span 2}
     .servico.largo:hover{transform:translateY(-3px)}
 
+    .galeria{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+    .g-item{border-radius:14px}
+    .g-dica{display:none}
+
     .horarios{
       display:grid;
       grid-template-columns:1fr 1.15fr;
@@ -497,6 +586,36 @@
       </a>
     </div>
 
+    <h2 class="titulo-secao anim" style="animation-delay:.58s">Trabalhos</h2>
+
+    <div class="galeria-wrap anim" style="animation-delay:.6s">
+      <div class="g-filtros" id="gFiltros" role="tablist"></div>
+      <div class="galeria" id="galeria">
+      <button class="g-item" data-cat="Unhas" data-full="img/galeria/unhas-01.jpg" data-alt="Esmaltação em gel preta, formato amendoado" aria-label="Ampliar: Esmaltação em gel preta, formato amendoado">
+        <img src="img/galeria/unhas-01-p.jpg" alt="Esmaltação em gel preta, formato amendoado" loading="lazy" width="420" height="420">
+      </button>
+      <button class="g-item" data-cat="Unhas" data-full="img/galeria/unhas-02.jpg" data-alt="Unhas terracota, formato quadrado" aria-label="Ampliar: Unhas terracota, formato quadrado">
+        <img src="img/galeria/unhas-02-p.jpg" alt="Unhas terracota, formato quadrado" loading="lazy" width="420" height="420">
+      </button>
+      <button class="g-item" data-cat="Unhas" data-full="img/galeria/unhas-03.jpg" data-alt="Efeito cat eye champagne, formato amendoado" aria-label="Ampliar: Efeito cat eye champagne, formato amendoado">
+        <img src="img/galeria/unhas-03-p.jpg" alt="Efeito cat eye champagne, formato amendoado" loading="lazy" width="420" height="420">
+      </button>
+      <button class="g-item" data-cat="Unhas" data-full="img/galeria/unhas-04.jpg" data-alt="Branco leitoso (milky), formato amendoado" aria-label="Ampliar: Branco leitoso (milky), formato amendoado">
+        <img src="img/galeria/unhas-04-p.jpg" alt="Branco leitoso (milky), formato amendoado" loading="lazy" width="420" height="420">
+      </button>
+      <button class="g-item" data-cat="Unhas" data-full="img/galeria/unhas-05.jpg" data-alt="Rosa nude, formato quadrado" aria-label="Ampliar: Rosa nude, formato quadrado">
+        <img src="img/galeria/unhas-05-p.jpg" alt="Rosa nude, formato quadrado" loading="lazy" width="420" height="420">
+      </button>
+      <button class="g-item" data-cat="Unhas" data-full="img/galeria/unhas-06.jpg" data-alt="Chocolate, formato oval" aria-label="Ampliar: Chocolate, formato oval">
+        <img src="img/galeria/unhas-06-p.jpg" alt="Chocolate, formato oval" loading="lazy" width="420" height="420">
+      </button>
+      <button class="g-item" data-cat="Unhas" data-full="img/galeria/unhas-07.jpg" data-alt="Nude com nail art marmorizada e glitter dourado" aria-label="Ampliar: Nude com nail art marmorizada e glitter dourado">
+        <img src="img/galeria/unhas-07-p.jpg" alt="Nude com nail art marmorizada e glitter dourado" loading="lazy" width="420" height="420">
+      </button>
+      </div>
+      <p class="g-dica">Toque na foto para ampliar</p>
+    </div>
+
     <h2 class="titulo-secao anim" style="animation-delay:.6s">Horários</h2>
 
     <div class="horarios anim" style="animation-delay:.64s">
@@ -553,6 +672,29 @@
 
 </div>
 
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-label="Foto ampliada">
+  <button class="lb-fechar" id="lbFechar" aria-label="Fechar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <button class="lb-nav lb-ant" id="lbAnt" aria-label="Foto anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+  </button>
+  <figure class="lb-fig">
+    <img id="lbImg" src="" alt="">
+    <figcaption>
+      <span id="lbLegenda"></span>
+      <small id="lbCont"></small>
+    </figcaption>
+    <a class="lb-cta" id="lbCta" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.2 8L3 21l1.1-4.6A9 9 0 1 1 21 12z"/></svg>
+      Quero uma assim
+    </a>
+  </figure>
+  <button class="lb-nav lb-prox" id="lbProx" aria-label="Próxima foto">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+</div>
+
 <script>
   // Monta o link do WhatsApp com o serviço escolhido
   var fone = "5575991972378";
@@ -572,6 +714,72 @@
     st.querySelector("em").textContent = aberto ? "Aberto agora" : "Fechado agora";
     document.querySelectorAll(".linha-h").forEach(function(l){
       if(l.dataset.dias.split(",").indexOf(String(dia))>-1) l.classList.add("hoje");
+    });
+  })();
+  // Galeria + lightbox
+  (function(){
+    var itens = Array.prototype.slice.call(document.querySelectorAll(".g-item"));
+    var filtros = document.getElementById("gFiltros");
+    var cats = [];
+    itens.forEach(function(i){ if(cats.indexOf(i.dataset.cat)<0) cats.push(i.dataset.cat); });
+    if(cats.length > 1) cats.unshift("Todos");
+    cats.forEach(function(c,n){
+      var b = document.createElement("button");
+      b.className = "g-filtro" + (n===0 ? " ativo" : "");
+      b.textContent = c; b.type = "button";
+      b.onclick = function(){
+        filtros.querySelectorAll(".g-filtro").forEach(function(x){x.classList.remove("ativo")});
+        b.classList.add("ativo");
+        itens.forEach(function(i){ i.hidden = !(c==="Todos" || i.dataset.cat===c); });
+      };
+      filtros.appendChild(b);
+    });
+
+    var lb = document.getElementById("lb"), img = document.getElementById("lbImg"),
+        leg = document.getElementById("lbLegenda"), cont = document.getElementById("lbCont"),
+        cta = document.getElementById("lbCta"), atual = 0, lista = [];
+    var servicoPorCat = {"Unhas":"Nail Design","Sobrancelhas":"Brows","Cílios":"Lash Design"};
+
+    function mostrar(n){
+      atual = (n + lista.length) % lista.length;
+      var el = lista[atual];
+      img.src = el.dataset.full; img.alt = el.dataset.alt;
+      leg.textContent = el.dataset.alt;
+      cont.textContent = (atual+1) + " / " + lista.length;
+      var serv = servicoPorCat[el.dataset.cat] || el.dataset.cat;
+      var msg = "Olá, Paloma! Vi este trabalho na sua página (" + el.dataset.alt + ") e quero agendar *" + serv + "* ✨\nDia/horário de preferência: ";
+      cta.href = "https://wa.me/5575991972378?text=" + encodeURIComponent(msg);
+    }
+    function abrir(el){
+      lista = itens.filter(function(i){ return !i.hidden; });
+      mostrar(lista.indexOf(el));
+      lb.classList.add("aberto"); lb.setAttribute("aria-hidden","false");
+      document.body.style.overflow = "hidden";
+      document.getElementById("lbFechar").focus();
+    }
+    function fechar(){
+      lb.classList.remove("aberto"); lb.setAttribute("aria-hidden","true");
+      document.body.style.overflow = "";
+    }
+    itens.forEach(function(i){ i.addEventListener("click", function(){ abrir(i); }); });
+    document.getElementById("lbFechar").onclick = fechar;
+    document.getElementById("lbAnt").onclick = function(){ mostrar(atual-1); };
+    document.getElementById("lbProx").onclick = function(){ mostrar(atual+1); };
+    lb.addEventListener("click", function(e){ if(e.target===lb) fechar(); });
+    document.addEventListener("keydown", function(e){
+      if(!lb.classList.contains("aberto")) return;
+      if(e.key==="Escape") fechar();
+      if(e.key==="ArrowLeft") mostrar(atual-1);
+      if(e.key==="ArrowRight") mostrar(atual+1);
+    });
+    // deslizar no celular
+    var x0 = null;
+    img.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+    img.addEventListener("touchend", function(e){
+      if(x0===null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if(Math.abs(dx) > 40) mostrar(atual + (dx<0 ? 1 : -1));
+      x0 = null;
     });
   })();
 </script>
