@@ -2,6 +2,8 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src https://www.google.com; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paloma Paixão · Studio de Beleza</title>
 <meta name="description" content="Paloma Paixão Studio de Beleza — Nail Design, Manicure & Pedicure, Brows, Lash Design e Massoterapia em Tucano-BA. Agende pelo WhatsApp.">
@@ -21,10 +23,14 @@
 <link rel="canonical" href="https://palomapaixaobeauty.github.io/">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="icon" href="img/monograma-marrom.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face{font-family:'Jost';src:url('fonts/jost-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:'Jost';src:url('fonts/jost-latin-500-normal.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+  @font-face{font-family:'Jost';src:url('fonts/jost-latin-600-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+  @font-face{font-family:'Cormorant Garamond';src:url('fonts/cormorant-garamond-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+  @font-face{font-family:'Cormorant Garamond';src:url('fonts/cormorant-garamond-latin-500-italic.woff2') format('woff2');font-weight:500;font-style:italic;font-display:swap}
   :root{
     --creme:#F4F1E2;
     --areia:#D3D0BF;
@@ -604,6 +610,7 @@
     .horarios .mapa{min-height:260px}
   }
 </style>
+<noscript><style>.sobre .rv{opacity:1;transform:none}.g-filtros,.g-dica{display:none}</style></noscript>
 </head>
 <body>
 <div class="page">
@@ -643,27 +650,27 @@
     <h2 class="titulo-secao anim" style="animation-delay:.48s">Nossos serviços</h2>
 
     <div class="servicos anim" style="animation-delay:.55s">
-      <a class="servico" data-servico="Nail Design" href="#" target="_blank" rel="noopener">
+      <a class="servico" data-servico="Nail Design" href="https://wa.me/5575991972378?text=Ol%C3%A1%2C%20Paloma%21%20Vim%20pela%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%3A%20%2ANail%20Design%2A%20%E2%9C%A8" target="_blank" rel="noopener">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6c2.3 0 3.9 3.4 3.9 7.3V17a3.9 3.9 0 0 1-7.8 0v-6.1c0-3.9 1.6-7.3 3.9-7.3z"/><path d="M10.6 7.4c-.35.9-.55 2-.55 3.1"/><path d="M8.1 14.6c2.5 1.1 5.3 1.1 7.8 0"/><path class="st" d="M18.6 2.6l.45 1.45 1.45.45-1.45.45-.45 1.45-.45-1.45-1.45-.45 1.45-.45z"/></svg></div>
         <div><strong>Nail Design</strong><span>Unhas</span></div>
         <svg class="seta-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
-      <a class="servico" data-servico="Manicure & Pedicure" href="#" target="_blank" rel="noopener">
+      <a class="servico" data-servico="Manicure & Pedicure" href="https://wa.me/5575991972378?text=Ol%C3%A1%2C%20Paloma%21%20Vim%20pela%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%3A%20%2AManicure%20%26%20Pedicure%2A%20%E2%9C%A8" target="_blank" rel="noopener">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="2.8" width="4" height="4.2" rx=".8"/><path d="M8 10a2.6 2.6 0 0 1 2.6-2.6h2.8A2.6 2.6 0 0 1 16 10v9a2.2 2.2 0 0 1-2.2 2.2h-3.6A2.2 2.2 0 0 1 8 19z"/><path d="M10.3 11.2v5.6"/><path class="st" d="M18.6 2.6l.45 1.45 1.45.45-1.45.45-.45 1.45-.45-1.45-1.45-.45 1.45-.45z"/></svg></div>
         <div><strong>Manicure &amp; Pedicure</strong><span>Mãos e pés</span></div>
         <svg class="seta-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
-      <a class="servico" data-servico="Brows (Design de Sobrancelhas)" href="#" target="_blank" rel="noopener">
+      <a class="servico" data-servico="Brows (Design de Sobrancelhas)" href="https://wa.me/5575991972378?text=Ol%C3%A1%2C%20Paloma%21%20Vim%20pela%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%3A%20%2ABrows%20%28Design%20de%20Sobrancelhas%29%2A%20%E2%9C%A8" target="_blank" rel="noopener">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 9.8c2.6-3 7.2-4 11.2-2.8 1.9.6 3.6 1.6 5.2 3"/><path d="M5.4 11c2.6-1.9 6.2-2.5 9.6-1.7"/><path d="M5 16.4c2-2.3 4.4-3.5 7-3.5s5 1.2 7 3.5c-2 2.3-4.4 3.5-7 3.5s-5-1.2-7-3.5z"/><circle cx="12" cy="16.4" r="1.6"/></svg></div>
         <div><strong>Brows</strong><span>Sobrancelhas</span></div>
         <svg class="seta-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
-      <a class="servico" data-servico="Lash Design" href="#" target="_blank" rel="noopener">
+      <a class="servico" data-servico="Lash Design" href="https://wa.me/5575991972378?text=Ol%C3%A1%2C%20Paloma%21%20Vim%20pela%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%3A%20%2ALash%20Design%2A%20%E2%9C%A8" target="_blank" rel="noopener">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 10.6c2.2 2.7 5 4 8.2 4s6-1.3 8.2-4"/><path d="M6.2 13.2 5 15.3M9 14.6l-.6 2.3M12 15v2.5M15 14.6l.6 2.3M17.8 13.2l1.2 2.1"/><path class="st" d="M18.6 2.6l.45 1.45 1.45.45-1.45.45-.45 1.45-.45-1.45-1.45-.45 1.45-.45z"/></svg></div>
         <div><strong>Lash Design</strong><span>Cílios</span></div>
         <svg class="seta-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
-      <a class="servico largo" data-servico="Massoterapia" href="#" target="_blank" rel="noopener">
+      <a class="servico largo" data-servico="Massoterapia" href="https://wa.me/5575991972378?text=Ol%C3%A1%2C%20Paloma%21%20Vim%20pela%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%3A%20%2AMassoterapia%2A%20%E2%9C%A8" target="_blank" rel="noopener">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.2c1.8 1.9 2.6 4.2 2.6 6.6s-.8 4.5-2.6 6.2c-1.8-1.7-2.6-3.8-2.6-6.2S10.2 7.1 12 5.2z"/><path d="M9.6 10.1c-2.1-.6-4.3-.4-6.1.6.6 3.7 3.6 6.7 8.5 7.3"/><path d="M14.4 10.1c2.1-.6 4.3-.4 6.1.6-.6 3.7-3.6 6.7-8.5 7.3"/><path d="M7.5 21h9"/></svg></div>
         <div><strong>Massoterapia</strong><span>Relaxamento e bem-estar</span></div>
         <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -673,7 +680,7 @@
     <h2 class="titulo-secao anim" style="animation-delay:.58s">Trabalhos</h2>
 
     <div class="galeria-wrap anim" style="animation-delay:.6s">
-      <div class="g-filtros" id="gFiltros" role="tablist"></div>
+      <div class="g-filtros" id="gFiltros" aria-label="Filtrar trabalhos"></div>
       <div class="galeria" id="galeria">
       <button class="g-item" data-cat="Unhas" data-full="img/galeria/unhas-01.jpg" data-alt="Esmaltação em gel preta, formato amendoado" aria-label="Ampliar: Esmaltação em gel preta, formato amendoado">
         <img src="img/galeria/unhas-01-p.jpg" alt="Esmaltação em gel preta, formato amendoado" loading="lazy" width="420" height="420">
@@ -788,18 +795,25 @@
     el.href = "https://wa.me/" + fone + "?text=" + encodeURIComponent(msg);
   });
 
-  // Status aberto/fechado (horário de Brasília)
+  // Status aberto/fechado (horário de Brasília), atualizado a cada minuto
   (function(){
-    var agora = new Date(new Date().toLocaleString("en-US",{timeZone:"America/Sao_Paulo"}));
-    var dia = agora.getDay(), min = agora.getHours()*60 + agora.getMinutes();
-    var fecha = (dia>=1 && dia<=5) ? 18*60 : (dia===6 ? 14*60 : 0);
-    var aberto = fecha && min >= 8*60 && min < fecha;
-    var st = document.getElementById("status");
-    st.classList.toggle("aberto", !!aberto);
-    st.querySelector("em").textContent = aberto ? "Aberto agora" : "Fechado agora";
-    document.querySelectorAll(".linha-h").forEach(function(l){
-      if(l.dataset.dias.split(",").indexOf(String(dia))>-1) l.classList.add("hoje");
-    });
+    var st = document.getElementById("status"), linhas = document.querySelectorAll(".linha-h");
+    var dias = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    function agoraSP(){
+      var p = {};
+      new Intl.DateTimeFormat("en-US",{timeZone:"America/Sao_Paulo",weekday:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"})
+        .formatToParts(new Date()).forEach(function(x){ p[x.type] = x.value; });
+      return {dia: dias[p.weekday], min: (+p.hour % 24) * 60 + (+p.minute)};
+    }
+    function atualizar(){
+      var a = agoraSP();
+      var fecha = (a.dia>=1 && a.dia<=5) ? 18*60 : (a.dia===6 ? 14*60 : 0);
+      var aberto = fecha && a.min >= 8*60 && a.min < fecha;
+      st.classList.toggle("aberto", !!aberto);
+      st.querySelector("em").textContent = aberto ? "Aberto agora" : "Fechado agora";
+      linhas.forEach(function(l){ l.classList.toggle("hoje", l.dataset.dias.split(",").indexOf(String(a.dia))>-1); });
+    }
+    try { atualizar(); setInterval(atualizar, 60000); } catch(e) {}
   })();
   // Galeria + lightbox
   (function(){
@@ -835,16 +849,21 @@
       var msg = "Olá, Paloma! Vi este trabalho na sua página (" + el.dataset.alt + ") e quero agendar *" + serv + "* ✨\nDia/horário de preferência: ";
       cta.href = "https://wa.me/5575991972378?text=" + encodeURIComponent(msg);
     }
+    var page = document.querySelector(".page"), fixo = document.getElementById("wppFixo"), origem = null;
     function abrir(el){
+      origem = el;
       lista = itens.filter(function(i){ return !i.hidden; });
       mostrar(lista.indexOf(el));
       lb.classList.add("aberto"); lb.setAttribute("aria-hidden","false");
       document.body.style.overflow = "hidden"; document.body.classList.add("lb-aberto");
+      page.inert = true; if(fixo) fixo.inert = true;
       document.getElementById("lbFechar").focus();
     }
     function fechar(){
       lb.classList.remove("aberto"); lb.setAttribute("aria-hidden","true");
       document.body.style.overflow = ""; document.body.classList.remove("lb-aberto");
+      page.inert = false; if(fixo) fixo.inert = false;
+      if(origem) origem.focus();
     }
     itens.forEach(function(i){ i.addEventListener("click", function(){ abrir(i); }); });
     document.getElementById("lbFechar").onclick = fechar;
@@ -856,6 +875,11 @@
       if(e.key==="Escape") fechar();
       if(e.key==="ArrowLeft") mostrar(atual-1);
       if(e.key==="ArrowRight") mostrar(atual+1);
+      if(e.key==="Tab"){ // mantém o foco dentro do visualizador
+        var f = lb.querySelectorAll("button, a[href]"), pri = f[0], ult = f[f.length-1];
+        if(e.shiftKey && document.activeElement===pri){ e.preventDefault(); ult.focus(); }
+        else if(!e.shiftKey && document.activeElement===ult){ e.preventDefault(); pri.focus(); }
+      }
     });
     // deslizar no celular
     var x0 = null;
