@@ -358,6 +358,82 @@
     .page{padding-top:24px}
     .hero{border-radius:34px}
   }
+
+  .cta-desktop{display:none}
+
+  /* ---------- DESKTOP: blocos na horizontal ---------- */
+  @media (min-width:960px){
+    body::before{background-size:60px auto}
+    .page{
+      max-width:1240px;
+      padding:36px 36px 40px;
+      display:grid;
+      grid-template-columns:390px minmax(0,1fr);
+      column-gap:40px;
+      align-items:start;
+    }
+    .hero{
+      position:sticky;top:36px;
+      border-radius:34px;
+      min-height:calc(100vh - 72px);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:48px 36px;
+    }
+    .hero::after{width:300px;height:400px;right:-70px;top:-40px}
+    .foto-wrap{width:190px;height:190px;margin-bottom:26px}
+    .logo-nome{width:300px}
+    .cta-desktop{display:block;width:100%;margin-top:34px}
+    .btn-hero{background:var(--creme);color:var(--cafe);box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
+    .btn-hero::after{background:linear-gradient(100deg,transparent,rgba(103,78,56,.14),transparent)}
+    .cta-desktop .sub-principal{color:var(--areia)}
+    .cta-mobile{display:none}
+
+    .conteudo{padding:0;min-width:0}
+    .conteudo .titulo-secao:first-of-type{margin-top:6px}
+    .titulo-secao{margin:38px 0 18px;font-size:1.6rem}
+
+    .servicos{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .servico{min-height:132px;padding:20px}
+    .servico:hover{transform:translateY(-3px);box-shadow:0 14px 26px -18px rgba(31,26,20,.45)}
+    .servico.largo{grid-column:span 2}
+    .servico.largo:hover{transform:translateY(-3px)}
+
+    .horarios{
+      display:grid;
+      grid-template-columns:1fr 1.15fr;
+      gap:26px;
+      padding:24px;
+      align-items:stretch;
+    }
+    .horarios .mapa{margin-top:0;aspect-ratio:auto;min-height:290px}
+
+    .links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .link{padding:16px}
+    .link:hover{transform:translateY(-3px);box-shadow:0 14px 26px -18px rgba(31,26,20,.45)}
+    .link .txt{min-width:0}
+    .link{gap:12px;padding:16px 14px}
+    .link .ic{width:38px;height:38px;border-radius:12px}
+    .link .txt small{font-size:.76rem}
+    .link .seta{display:none}
+
+    .sobre{
+      display:flex;align-items:center;gap:28px;
+      text-align:left;
+      padding:30px 36px;
+      margin-top:38px;
+    }
+    .sobre img{width:62px;margin:0;flex-shrink:0}
+    .sobre p{font-size:1.4rem}
+    .sobre small{margin-top:10px}
+
+    footer{grid-column:2;padding-top:26px}
+  }
+
+  @media (min-width:960px) and (max-width:1180px){
+    .page{grid-template-columns:340px minmax(0,1fr);column-gap:28px;padding:28px}
+    .horarios{grid-template-columns:1fr}
+    .horarios .mapa{min-height:260px}
+  }
 </style>
 </head>
 <body>
@@ -376,11 +452,18 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
       Tucano · Bahia
     </div>
+    <div class="cta-desktop anim" style="animation-delay:.4s">
+      <a class="btn-principal btn-hero" href="https://wa.me/5575991972378?text=Ol%C3%A1%2C%20Paloma!%20Vim%20pela%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20%E2%9C%A8" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.4z"/></svg>
+        Agendar meu horário
+      </a>
+      <p class="sub-principal">Atendimento com hora marcada</p>
+    </div>
   </header>
 
   <main class="conteudo">
 
-    <div class="anim" style="animation-delay:.4s">
+    <div class="cta-mobile anim" style="animation-delay:.4s">
       <a class="btn-principal" href="https://wa.me/5575991972378?text=Ol%C3%A1%2C%20Paloma!%20Vim%20pela%20sua%20p%C3%A1gina%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20%E2%9C%A8" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.4z"/></svg>
         Agendar meu horário
@@ -417,18 +500,20 @@
     <h2 class="titulo-secao anim" style="animation-delay:.6s">Horários</h2>
 
     <div class="horarios anim" style="animation-delay:.64s">
+      <div class="h-info">
       <div class="status" id="status"><i></i><em style="font-style:normal">Horário de atendimento</em></div>
       <div class="linha-h" data-dias="1,2,3,4,5"><span>Segunda a Sexta</span><strong>08h às 18h</strong></div>
       <div class="linha-h" data-dias="6"><span>Sábado</span><strong>08h às 14h</strong></div>
       <div class="linha-h" data-dias="0"><span>Domingo</span><strong>Fechado</strong></div>
-      <div class="mapa">
-        <iframe src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1794922876709!5m2!1spt-BR!2sbr!6m8!1m7!1sOi_-ZM7h53sNRqM1etFcvg!2m2!1d-10.96373077947386!2d-38.78462447118498!3f73.22376328483881!4f3.110031572019807!5f0.7820865974627469" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Fachada do Paloma Paixão Studio de Beleza"></iframe>
-        <span class="mapa-legenda">Nossa fachada</span>
-      </div>
       <a class="endereco" href="https://maps.google.com/?cid=7342965173905362033" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
         <div><b>R. Euvaldo Pereira Nunes – Centro</b><br>Tucano-BA · 48790-000</div>
       </a>
+      </div>
+      <div class="mapa">
+        <iframe src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1794922876709!5m2!1spt-BR!2sbr!6m8!1m7!1sOi_-ZM7h53sNRqM1etFcvg!2m2!1d-10.96373077947386!2d-38.78462447118498!3f73.22376328483881!4f3.110031572019807!5f0.7820865974627469" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Fachada do Paloma Paixão Studio de Beleza"></iframe>
+        <span class="mapa-legenda">Nossa fachada</span>
+      </div>
     </div>
 
     <h2 class="titulo-secao anim" style="animation-delay:.62s">Acompanhe</h2>
@@ -453,8 +538,10 @@
 
     <section class="sobre anim" style="animation-delay:.76s">
       <img src="img/monograma-creme.png" alt="">
-      <p>Cuidar de você vai além da estética — é um gesto de autoestima e confiança.</p>
-      <small>Técnica · Sofisticação · Acolhimento</small>
+      <div class="sobre-txt">
+        <p>Cuidar de você vai além da estética — é um gesto de autoestima e confiança.</p>
+        <small>Técnica · Sofisticação · Acolhimento</small>
+      </div>
     </section>
 
   </main>
