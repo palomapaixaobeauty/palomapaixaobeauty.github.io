@@ -434,23 +434,67 @@
     margin-top:34px;
     background:var(--cafe);
     color:var(--creme);
-    border-radius:24px;
-    padding:30px 26px;
+    border-radius:28px;
+    padding:38px 28px 34px;
     text-align:center;
     position:relative;overflow:hidden;
+    isolation:isolate;
   }
-  .sobre img{width:46px;height:auto;display:block;margin:0 auto 14px;opacity:.9}
+  /* brilho suave que acompanha o bloco */
+  .sobre::before{
+    content:"";position:absolute;z-index:-1;
+    width:260px;height:260px;border-radius:50%;
+    left:50%;top:-120px;transform:translateX(-50%);
+    background:radial-gradient(circle,rgba(125,109,83,.45),transparent 70%);
+  }
+  /* monograma gigante em marca d'água */
+  .sobre::after{
+    content:"";position:absolute;z-index:-1;
+    width:220px;height:300px;right:-70px;bottom:-90px;
+    background:url("img/monograma-creme.png") no-repeat center/contain;
+    opacity:.05;transform:rotate(-12deg);
+  }
+  .sobre-mono{
+    width:52px;height:auto;display:block;margin:0 auto 22px;
+    opacity:.95;
+  }
   .sobre p{
     font-family:'Cormorant Garamond',serif;
-    font-size:1.22rem;
-    line-height:1.45;
+    font-size:1.4rem;
+    line-height:1.4;
     font-style:italic;
+    text-wrap:balance;
+    max-width:300px;margin:0 auto;
   }
-  .sobre small{
-    display:block;margin-top:14px;
-    font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;
+  .sobre-div{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    margin:22px auto 18px;color:var(--areia);
+  }
+  .sobre-div::before,.sobre-div::after{
+    content:"";height:1px;width:56px;
+    background:linear-gradient(90deg,transparent,rgba(211,208,191,.6));
+    transform-origin:right;
+  }
+  .sobre-div::after{transform:scaleX(-1);transform-origin:center}
+  .sobre-div svg{width:12px;height:12px}
+  .valores{
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+    column-gap:12px;row-gap:8px;
+    font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;
     color:var(--areia);
   }
+  .valores i{width:4px;height:4px;border-radius:50%;background:var(--oliva);display:block}
+  .valores span{margin-right:-.22em}
+  .valores .v3{flex-basis:100%;text-align:center}
+  .valores .v3-sep{display:none}
+
+  /* entrada ao rolar */
+  .sobre .rv{opacity:0;transform:translateY(10px);transition:opacity .8s ease,transform .8s ease}
+  .sobre.visto .rv{opacity:1;transform:none}
+  .sobre.visto .rv:nth-child(2){transition-delay:.12s}
+  .sobre.visto .rv:nth-child(3){transition-delay:.24s}
+  .sobre.visto .rv:nth-child(4){transition-delay:.36s}
+  @media (prefers-reduced-motion:reduce){.sobre .rv{opacity:1;transform:none}}
 
   footer{
     text-align:center;
@@ -539,14 +583,17 @@
     .link .txt small{font-size:.8rem}
 
     .sobre{
-      display:flex;align-items:center;gap:28px;
-      text-align:left;
-      padding:30px 36px;
-      margin-top:38px;
+      display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:32px;
+      text-align:left;padding:34px 40px;margin-top:38px;
     }
-    .sobre img{width:62px;margin:0;flex-shrink:0}
-    .sobre p{font-size:1.4rem}
-    .sobre small{margin-top:10px}
+    .sobre::before{left:60px;top:-130px}
+    .sobre-mono{width:64px;margin:0;grid-row:span 3}
+    .sobre p{max-width:none;margin:0;font-size:1.5rem}
+    .sobre-div{justify-content:flex-start;margin:14px 0 12px}
+    .sobre-div::before{display:none}
+    .valores{justify-content:flex-start}
+    .valores .v3{flex-basis:auto}
+    .valores .v3-sep{display:block}
 
     footer{grid-column:2;padding-top:26px}
   }
@@ -687,11 +734,12 @@
       </a>
     </div>
 
-    <section class="sobre anim" style="animation-delay:.76s">
-      <img src="img/monograma-creme.png" alt="">
-      <div class="sobre-txt">
-        <p>Cuidar de você vai além da estética — é um gesto de autoestima e confiança.</p>
-        <small>Técnica · Sofisticação · Acolhimento</small>
+    <section class="sobre" id="sobre">
+      <img class="sobre-mono rv" src="img/monograma-creme.png" alt="">
+      <p class="rv">Cuidar de você vai além da estética, é um gesto de autoestima e confiança.</p>
+      <div class="sobre-div rv" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg></div>
+      <div class="valores rv">
+        <span>Técnica</span><i></i><span>Sofisticação</span><i class="v3-sep"></i><span class="v3">Acolhimento</span>
       </div>
     </section>
 
@@ -826,6 +874,14 @@
     new IntersectionObserver(function(e){
       fixo.classList.toggle("visivel", !e[0].isIntersecting && e[0].boundingClientRect.top < 0);
     }).observe(alvo);
+  })();
+  // Revela o bloco final ao rolar
+  (function(){
+    var el = document.getElementById("sobre");
+    if(!("IntersectionObserver" in window)){ el.classList.add("visto"); return; }
+    new IntersectionObserver(function(e,o){
+      if(e[0].isIntersecting){ el.classList.add("visto"); o.disconnect(); }
+    },{threshold:.3}).observe(el);
   })();
 </script>
 </body>
